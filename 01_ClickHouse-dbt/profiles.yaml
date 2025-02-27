@@ -1,0 +1,8 @@
+inf:
+  target: dev
+  outputs:
+    dev:
+      type: clickhouse
+      host: localhost # Или ваш IP-адрес
+      port: 9000       # Порт, который слушает ClickHouse
+      user: default    # Имя пользователя ClickHouse

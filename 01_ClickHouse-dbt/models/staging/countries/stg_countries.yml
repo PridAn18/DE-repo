@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: stg_countries
+    description: Эта модель чистит stg_countries
+    columns:
+      - name: country_code
+        description: Unique code
+        data_tests:
+          - unique
+          - not_null

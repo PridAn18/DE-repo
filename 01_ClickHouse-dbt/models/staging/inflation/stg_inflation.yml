@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: stg_inflation
+    description: Эта модель чистит stg_inflation
+    columns:
+      - name: country_code
+        description: country_code not null
+        data_tests:
+          - not_null
