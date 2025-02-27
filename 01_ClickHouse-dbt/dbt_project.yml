@@ -35,3 +35,6 @@ models:
     staging:
       +materialized: view
       +tags: staging
+    dwh:
+      +materialized: view
+      +tags: dwh

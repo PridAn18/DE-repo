@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: stg_countries
-    description: Эта модель чистит stg_countries
+    description: Модель stg_countries для загрузки сырых данных в staging
     columns:
       - name: country_code
         description: Unique code

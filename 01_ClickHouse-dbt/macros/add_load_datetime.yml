@@ -1,0 +1,6 @@
+version: 2
+
+macros:
+  - name: add_load_datetime
+    description: Макрос для генерации времени загрузки
+    arguments: []

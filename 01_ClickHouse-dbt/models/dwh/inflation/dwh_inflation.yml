@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dwh_inflation
+    description: Модель dwh_inflation для загрузки актуальных данных об инфляции в DWH
+    columns:
+      - name: load_dt
+        description: load_dt not null
+        data_tests:
+          - not_null
+    tests:
+      - dbt_utils.unique_combination_of_columns:
+          combination_of_columns:
+            - country_code
+            - year
+            - load_dt

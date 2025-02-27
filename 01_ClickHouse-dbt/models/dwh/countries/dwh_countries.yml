@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: dwh_countries
+    description: Модель dwh_countries для загрузки названия стран в DWH
+    columns:
+      - name: load_dt
+        description: load_dt not_null
+        data_tests:
+          - not_null
