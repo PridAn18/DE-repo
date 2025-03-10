@@ -1,5 +1,5 @@
 logs/
 plugins/
 scripts/
-env/
+venv/
 clickhouse/
