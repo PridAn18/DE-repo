@@ -47,3 +47,20 @@ docker-compose up -d
 **CLICKHOUSE_USER**: admin \
 **CLICKHOUSE_PASSWORD**: admin \
 **CLICKHOUSE_DATABASE**: default
+
+## Структура проекта
+
+- **airflow_dockerfile/**
+  - Папка с требуемыми библиотеками и dockerfile.
+
+- **dags/**
+  - Папка с ДАГом, собирающего данные по API и передачей в брокер.
+
+- **DDLclickhouse.sql**
+  - Код для создания таблицы в ClickHouse.
+
+- **docker_related_config.xml**
+  - Файл с конфигурацией ClickHouse.
+
+- **SparkStream.py**
+  - Spark скрипт для стриминга, запускаемый Spark клиентом
