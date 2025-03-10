@@ -7,7 +7,6 @@ import logging
 logging.basicConfig(level=logging.ERROR)
 
 def insert_data(session, **kwargs):
-    print("Вставка данных...")
 
     user_id = kwargs.get('id')
     first_name = kwargs.get('first_name')
@@ -90,7 +89,6 @@ def create_selection_df_from_kafka(spark_df):
 
     sel = spark_df.selectExpr("CAST(value AS STRING)") \
         .select(from_json(col('value'), schema).alias('data')).select("data.*")
-    print(sel)
 
     return sel
 
