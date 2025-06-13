@@ -1,0 +1,10 @@
+version: 2
+
+models:
+  - name: stg_inflation
+    description: Модель stg_inflation для загрузки сырых данных в staging
+    columns:
+      - name: country_code
+        description: country_code not null
+        data_tests:
+          - not_null

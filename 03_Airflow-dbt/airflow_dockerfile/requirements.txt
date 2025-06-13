@@ -1,0 +1,6 @@
+pandas
+apache-airflow-providers-clickhouse
+clickhouse-driver
+dbt-core
+dbt-clickhouse
+requests==2.31.0

@@ -1,0 +1,9 @@
+NifiPrj:
+  target: dev
+  outputs:
+    dev:
+      type: clickhouse
+      host: localhost # Или ваш IP-адрес
+      port: 8123       # Порт, который слушает ClickHouse
+      user: admin    # Имя пользователя ClickHouse
+      password: admin

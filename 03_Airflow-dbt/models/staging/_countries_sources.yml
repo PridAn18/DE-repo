@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: global_inflation_countries
+    database: default
+    tables:
+      - name: global_inflation_countries
+  
