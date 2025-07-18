@@ -1,0 +1,7 @@
+
+duckdb_lakehouse/target/
+duckdb_lakehouse/dbt_packages/
+duckdb_lakehouse/logs/
+venv/
+data/
+duckdb_lakehouse/lakehouse.duckdb

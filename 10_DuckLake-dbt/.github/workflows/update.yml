@@ -1,0 +1,35 @@
+name: Update Taxi Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * *'  # каждый день в 07:00 UTC
+
+jobs:
+  update_and_run_dbt:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install deps
+        run: pip install boto3 requests duckdb dbt-duckdb
+
+      - name: Run script and capture year/month
+        id: get_date
+        run: |
+          python scripts/check_and_download.py > output.log
+          echo "Parsing output..."
+          cat output.log
+          export YEAR=$(grep "::set-output name=year::" output.log | cut -d ':' -f4)
+          export MONTH=$(grep "::set-output name=month::" output.log | cut -d ':' -f4)
+          echo "year=$YEAR" >> $GITHUB_ENV
+          echo "month=$MONTH" >> $GITHUB_ENV
+
+      - name: Run dbt
+        run: |
+          dbt run --select tag:staging --vars '{"year": "${{ env.year }}", "month": "${{ env.month }}"}'
