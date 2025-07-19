@@ -3,7 +3,7 @@ name: Update Taxi Data
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 7 * * *'  # каждый день в 07:00 UTC
+    - cron: '0 7 * * *' 
 
 jobs:
   update_and_run_dbt:
