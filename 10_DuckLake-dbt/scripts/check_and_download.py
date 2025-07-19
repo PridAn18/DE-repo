@@ -8,7 +8,7 @@ import os
 S3_BUCKET = "lake"
 S3_PREFIX = "yellow_tripdata/"
 FILENAME_TEMPLATE = "yellow_tripdata_{year}-{month:02}.parquet"
-S3_ENDPOINT_URL = "http://localhost:9000"  # или "https://<your-minio-endpoint>" в GitHub
+S3_ENDPOINT_URL = "http://localhost:9000" 
 
 def get_latest_s3_date():
     s3 = boto3.client(
@@ -28,11 +28,9 @@ def get_latest_s3_date():
     return max(dates)
 
 def get_latest_available_on_web():
-    """Возвращает последний возможный месяц публикации TLC данных.
-    Например, если сегодня июль, скорее всего доступны только данные за май."""
     today = datetime.today()
 
-    # Предположим, lag = 2 месяца (данные за месяц появляются в начале следующего через месяц)
+    
     lag_months = 2
     year = today.year
     month = today.month - lag_months
