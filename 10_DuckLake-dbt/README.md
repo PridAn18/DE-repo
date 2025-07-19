@@ -7,7 +7,7 @@
 * **Python скриптов для ETL**
 * **DuckDB как lakehouse хранилища**
 * **dbt для трансформаций данных**
-* **GitHub Actions с self-hosted runner для автоматизации**
+* **GitHub Actions для автоматизации**
 
 ---
 
