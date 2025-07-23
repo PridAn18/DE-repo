@@ -34,7 +34,7 @@ jobs:
 
       - name: Run dbt with variables
         run: |
-          cd 10_DuckLake-dbt
+          cd 10_DuckLake-dbt/duckdb_lakehouse
           dbt deps
           dbt run --select tag:staging --vars '{"year": "${{ env.year }}", "month": "${{ env.month }}"}'
           dbt run --select tag:intermediate
@@ -42,5 +42,5 @@ jobs:
 
       - name: Run dbt tests
         run: |
-          cd 10_DuckLake-dbt
+          cd 10_DuckLake-dbt/duckdb_lakehouse
           dbt test
