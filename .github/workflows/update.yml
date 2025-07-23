@@ -1,0 +1,46 @@
+name: Update Taxi Data
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 7 * * *'
+
+jobs:
+  update_and_run_dbt:
+    runs-on: self-hosted
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install -r 10_DuckLake-dbt/requirements.txt
+
+      - name: Run script and extract date
+        id: get_date
+        run: |
+          cd 10_DuckLake-dbt
+          python check_and_download.py > output.log
+          echo "Parsing output..."
+          cat output.log
+          YEAR=$(grep -oP '::set-output name=year::\K[0-9]+' output.log || echo "2025")
+          MONTH=$(grep -oP '::set-output name=month::\K[0-9]+' output.log || echo "05")
+          echo "year=$YEAR" >> $GITHUB_ENV
+          echo "month=$MONTH" >> $GITHUB_ENV
+
+      - name: Run dbt with variables
+        run: |
+          cd 10_DuckLake-dbt
+          dbt deps
+          dbt run --select tag:staging --vars '{"year": "${{ env.year }}", "month": "${{ env.month }}"}'
+          dbt run --select tag:intermediate
+          dbt run --select tag:marts
+
+      - name: Run dbt tests
+        run: |
+          cd 10_DuckLake-dbt
+          dbt test
