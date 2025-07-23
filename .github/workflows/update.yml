@@ -24,7 +24,7 @@ jobs:
         id: get_date
         run: |
           cd 10_DuckLake-dbt
-          python check_and_download.py > output.log
+          python scripts/check_and_download.py > output.log
           echo "Parsing output..."
           cat output.log
           YEAR=$(grep -oP '::set-output name=year::\K[0-9]+' output.log || echo "2025")
