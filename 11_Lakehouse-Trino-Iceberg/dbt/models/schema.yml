@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: silver
+    catalog: iceberg
+    schema: silver
+    tables:
+      - name: yellow_tripdata

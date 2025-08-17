@@ -1,0 +1,13 @@
+*.egg-info
+env/
+__pycache__/
+build/
+dist/
+dbt/.user.yml
+dbt/logs/
+dbt/target/
+docker/
+.DS_Store
+.vscode/
+logs/
+.venv/
