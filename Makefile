@@ -6,19 +6,4 @@ DBT_TEST_USER_3=user3
 
 start-trino:
 	docker network create dbt-net || true
-	./docker/init_trino.bash
-
-dbt-trino-tests: start-trino
-	pip install -e . -r dev_requirements.txt
-	tox -r
-
-start-starburst:
-	docker network create dbt-net || true
-	./docker/init_starburst.bash
-
-dbt-starburst-tests: start-starburst
-	pip install -e . -r dev_requirements.txt
-	tox -r
-
-dev:
-	pre-commit install
+	./trino/init_trino.bash

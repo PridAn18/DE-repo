@@ -1,0 +1,12 @@
+name: 'lakehouse_project'
+version: '1.0.0'
+config-version: 2
+
+profile: 'lakehouse_project'
+
+model-paths: ["models"]
+
+models:
+  lakehouse_project:
+    gold:
+      +materialized: table

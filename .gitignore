@@ -1,12 +1,12 @@
 *.egg-info
 env/
 __pycache__/
-.tox/
-.idea/
 build/
 dist/
-dbt-integration-tests
-docker/dbt/.user.yml
+dbt/.user.yml
+dbt/logs/
+dbt/target/
+docker/
 .DS_Store
 .vscode/
 logs/

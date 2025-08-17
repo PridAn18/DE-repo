@@ -1,0 +1,12 @@
+lakehouse_project:
+  target: dev
+  outputs:
+    dev:
+      type: trino
+      method: none
+      catalog: iceberg
+      schema: gold
+      host: localhost
+      port: 8080
+      user: dbt
+      threads: 4
